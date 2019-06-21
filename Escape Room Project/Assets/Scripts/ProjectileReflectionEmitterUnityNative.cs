@@ -39,6 +39,10 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxStepDistance))
         {
+            if (hit.collider.tag == "Player")
+            {
+                Debug.Log("A");
+            }
             direction = Vector3.Reflect(direction, hit.normal);
             position = hit.point;
         }
@@ -46,6 +50,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         {
             position += direction * maxStepDistance;
         }
+        
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(startingPosition, position);
