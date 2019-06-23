@@ -144,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4795684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.4302406, y: 39.247982, z: -10.421152}
+  m_LocalPosition: {x: -5.4302406, y: 39.58, z: -10.421152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383257780}
@@ -278,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 3433642107446749874, guid: ad34820b6572e554d883af5ce5f950e0,
         type: 3}
       propertyPath: m_Name
-      value: WallChangeDirection (1)
+      value: MirrorUp
       objectReference: {fileID: 0}
     - target: {fileID: 3433642107446749886, guid: ad34820b6572e554d883af5ce5f950e0,
         type: 3}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 243620931}
   - component: {fileID: 243620927}
   m_Layer: 9
-  m_Name: TargetLaser
+  m_Name: Target for Laser
   m_TagString: LaserTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 248317392}
   - component: {fileID: 248317397}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Laser Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2840,7 +2840,7 @@ PrefabInstance:
     - target: {fileID: 3433642107446749874, guid: ad34820b6572e554d883af5ce5f950e0,
         type: 3}
       propertyPath: m_Name
-      value: WallChangeDirection
+      value: MirrorDown
       objectReference: {fileID: 0}
     - target: {fileID: 3433642107446749886, guid: ad34820b6572e554d883af5ce5f950e0,
         type: 3}
