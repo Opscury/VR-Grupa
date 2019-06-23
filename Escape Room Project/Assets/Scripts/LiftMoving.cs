@@ -18,12 +18,12 @@ public class LiftMoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && currentPlace != path.Count-1)
+        if (Input.GetKeyDown(KeyCode.O) && currentPlace != path.Count-1)
         {
             movingWhere = 2;
             currentPlace++;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && currentPlace != 0)
+        if (Input.GetKeyDown(KeyCode.P) && currentPlace != 0)
         {
             movingWhere = 1;
             currentPlace--;
