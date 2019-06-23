@@ -15,6 +15,8 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
 {
     public int maxReflectionCount = 5;
     public float maxStepDistance = 200;
+    bool isHit = false;
+    bool isStopped = false;
 
     void OnDrawGizmos()
     {
@@ -39,22 +41,47 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxStepDistance))
         {
-            if (hit.collider.tag == "Player")
+            if (hit.collider.tag == "LaserTarget")
             {
-                Debug.Log("A");
+                isHit = true;
+            } else
+            {
+                isHit = false;
             }
+            if (hit.collider.tag != "Mirror")
+            {
+                isStopped = true;
+            } else
+            {
+                isStopped = false;
+            }
+
             direction = Vector3.Reflect(direction, hit.normal);
             position = hit.point;
+
         }
         else
         {
             position += direction * maxStepDistance;
         }
-        
 
-        Gizmos.color = Color.yellow;
+
+        Gizmos.color = Color.blue;
         Gizmos.DrawLine(startingPosition, position);
 
-        DrawPredictedReflectionPattern(position, direction, reflectionsRemaining - 1);
+        if(isHit == true)
+        {
+            Debug.Log("HitTarget");
+            DrawPredictedReflectionPattern(position, direction, 0);
+        } else if (isStopped == true)
+        {
+            DrawPredictedReflectionPattern(position, direction, 0);
+        } else
+        {
+            DrawPredictedReflectionPattern(position, direction, reflectionsRemaining - 1);
+
+        }
+        
+
     }
 }

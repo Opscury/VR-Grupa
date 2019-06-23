@@ -43,9 +43,13 @@ public class CharContr : MonoBehaviour
             transform.Rotate(0, 5, 0, Space.Self);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             GameObject Laser = Instantiate(LaserPrefab, transform.position, transform.rotation);
-        }
+        } */
+
+        
     }
+
+
 }
