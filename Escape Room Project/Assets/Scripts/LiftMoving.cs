@@ -5,36 +5,42 @@ using UnityEngine;
 public class LiftMoving : MonoBehaviour
 {
     public List<GameObject> path;
-    public int currentPlace = 1;
-    //movingWhere- where to move. If 0 then nowhere, 1 downwards, 2 upwards
-    int movingWhere = 0;
+    public int dir;
+    public int currentPlace = 0;
     public int speed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.O) && currentPlace != path.Count-1)
         {
-            movingWhere = 2;
+            dir = 1;
             currentPlace++;
         }
         if (Input.GetKeyDown(KeyCode.P) && currentPlace != 0)
         {
-            movingWhere = 1;
+            dir = 2;
             currentPlace--;
         }
 
-        if(movingWhere == 1)
+        transform.position = Vector3.MoveTowards(transform.position, path[currentPlace].transform.position, speed * Time.deltaTime);
+        
+    }
+
+    public void LiftUp()
+    {
+        if (currentPlace != path.Count - 1)
         {
-            transform.position = Vector3.MoveTowards(transform.position, path[currentPlace].transform.position, speed * Time.deltaTime);
-        } else if (movingWhere == 2)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, path[currentPlace].transform.position, speed * Time.deltaTime);
+            dir = 1;
+            currentPlace++;
         }
+    }
+
+    public void LiftDown()
+    {
+        if (currentPlace != 0)
+        {
+            dir = 2;
+            currentPlace--;
+        }  
     }
 }
