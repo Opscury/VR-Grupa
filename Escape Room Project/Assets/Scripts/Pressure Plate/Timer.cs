@@ -29,8 +29,7 @@ public class Timer : MonoBehaviour
         if(finished == false)
         {
             active = false;
-            time = 30;
-            timer.SetText("" + time);
+            timer.SetText(time.ToString("0.0"));
         }
     }
 
