@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrapPlate : MonoBehaviour
 {
     private int targetWeight = 0;
+    public GameObject destination;
 
     private void OnCollisionEnter(Collision col)
     {
@@ -13,17 +14,17 @@ public class TrapPlate : MonoBehaviour
             if (targetWeight == 0)
             {
                 targetWeight = col.gameObject.GetComponent<Weight>().w;
-                FindObjectOfType<DestinationPlate>().targetWeight = targetWeight;
+                destination.GetComponent<DestinationPlate>().targetWeight = targetWeight;
             }
 
             if (col.gameObject.GetComponent<Weight>().w == targetWeight)
             {
-                if (FindObjectOfType<DestinationPlate>().has == false)
+                if (destination.GetComponent<DestinationPlate>().has == false)
                 {
                     FindObjectOfType<Timer>().Deactivate();
                 }
 
-                if (FindObjectOfType<DestinationPlate>().has)
+                if (destination.GetComponent<DestinationPlate>().has)
                 {
                     FindObjectOfType<Timer>().Finished();
                 }

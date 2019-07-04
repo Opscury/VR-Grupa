@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestinationPlate : MonoBehaviour
 {
     public int targetWeight;
+    public GameObject screen;
     public bool has = false;
 
     private void OnCollisionEnter(Collision col)
@@ -15,9 +16,9 @@ public class DestinationPlate : MonoBehaviour
             {
                 has = true;
 
-                if(FindObjectOfType<Timer>().active == false)
+                if(screen.GetComponent<Timer>().active == false)
                 {
-                    FindObjectOfType<Timer>().Finished();
+                    screen.GetComponent<Timer>().Finished();
                 }
             }
         }
